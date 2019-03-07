@@ -1,6 +1,5 @@
 package graphics;
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -8,13 +7,19 @@ import javax.swing.JPanel;
 
 public class MovingShapePanel extends JPanel implements Runnable{
 	
-	private Shape shape;
+	private Shape shape1;
+	private Shape shape2;
+	private Shape shape3;
+	private Shape shape4;
 	
 	public MovingShapePanel() {
 		setBackground(Color.WHITE);
 		setVisible(true);
 		
-		shape = new Shape(200, 200, 50, 50, Color.PINK);
+		shape1 = new Shape(200, 200, 50, 50, Color.PINK, 5, 4);
+		shape2 = new Shape(100,79, 50, 50, Color.CYAN, 5,7);
+		shape3 = new Shape(300,267,50,50, Color.MAGENTA, 7,6);
+		shape4 = new Shape(500,300,60,60, Color.BLUE, 4,5);
 		
 		new Thread(this).start();
 		
@@ -33,17 +38,27 @@ public class MovingShapePanel extends JPanel implements Runnable{
 		window.setFont(new Font("TAHOMA",Font.BOLD,18));
 		window.drawString("CREATE YOUR OWN SHAPE!",40,40);
 
-		shape.setX(shape.getX()+shape.getXSpeed());
-		shape.setY(shape.getY()+shape.getYSpeed());
-    	shape.draw(window);
+		move(window, shape1);
     	
-    	if(shape.getX() <= 20 || shape.getX() >= getWidth()-70) {
-    		shape.setXSpeed(-shape.getXSpeed());
-    	}
-    	if(shape.getY() <= 20 || shape.getY() >= getHeight()-70) {
-    		shape.setYSpeed(-shape.getYSpeed());
-    	}
+    	move(window, shape2);
+    	
+    	move(window, shape3);
+    	
+    	move(window, shape4);
 	}
+	
+	public void move(Graphics window, Shape shape1) {
+    	shape1.setX(shape1.getX()+shape1.getXSpeed());
+		shape1.setY(shape1.getY()+shape1.getYSpeed());
+    	shape1.draw(window);
+    	
+    	if(shape1.getX() <= 20 || shape1.getX() >= getWidth()-70) {
+    		shape1.setXSpeed(-shape1.getXSpeed());
+    	}
+    	if(shape1.getY() <= 20 || shape1.getY() >= getHeight()-70) {
+    		shape1.setYSpeed(-shape1.getYSpeed());
+    	}
+    }
 
 	@Override
 	public void run() {

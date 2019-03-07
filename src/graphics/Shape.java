@@ -12,14 +12,14 @@ public class Shape {
     private int xSpeed;
     private int ySpeed;
     
-    public Shape(int x, int y, int width, int height, Color color){
+    public Shape(int x, int y, int width, int height, Color color, int xs, int xy){
         this.x = x;
         this.y = y;
         this.w = width;
         this.h = height;
         this.c = color;
-        this.xSpeed = 5;
-        this.ySpeed = 5;
+        this.xSpeed = xs;
+        this.ySpeed = xy;
     }
     
     public void draw(Graphics window){
