@@ -11,6 +11,7 @@ public class MovingShapePanel extends JPanel implements Runnable{
 	private Shape shape2;
 	private Shape shape3;
 	private Shape shape4;
+	private Shape shape5;
 	
 	public MovingShapePanel() {
 		setBackground(Color.WHITE);
@@ -20,6 +21,7 @@ public class MovingShapePanel extends JPanel implements Runnable{
 		shape2 = new Shape(100,79, 50, 50, Color.CYAN, 5,7);
 		shape3 = new Shape(300,267,50,50, Color.MAGENTA, 7,6);
 		shape4 = new Shape(500,300,60,60, Color.BLUE, 4,5);
+		shape5 = new Shape(400,350,55, 55, Color.DARK_GRAY,6,5);
 		
 		new Thread(this).start();
 		
@@ -45,6 +47,8 @@ public class MovingShapePanel extends JPanel implements Runnable{
     	move(window, shape3);
     	
     	move(window, shape4);
+    	
+    	move(window, shape5);
 	}
 	
 	public void move(Graphics window, Shape shape1) {
